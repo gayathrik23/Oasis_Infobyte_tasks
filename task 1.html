@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>
+            Calculator
+        </title>
+        <script>
+            function cs(){
+                var x=document.getElementById("b");
+                document.getElementById("s").value=" ";
+            }
+            function print_e(val){
+                document.getElementById("s").value+=val;
+            }
+            function calculate(){
+                var p = document.getElementById("s").value;
+                var q = eval(p);
+                document.getElementById("s").value=q;
+            }
+        </script>
+        <style>
+            .o{
+                margin: 50px;
+            }
+            .i{
+                padding: 20px 10px 10px 30px;
+                color: black;
+                background-color:aqua;
+            }
+            .d{
+                padding: 20px 20px 10px 10px;
+                background-color:blueviolet;
+            }
+            .in{
+                padding: 10px 15px 15px 20px;
+                background-color:beige;  
+            }
+        </style>
+    </head>
+    <body style="background-color:black">
+        <div class="o">
+            <table style="background-color: rgb(91, 179, 179);" border="1">
+                <caption><h2 style="color:burlywood;font-size:30px;text-decoration:underline">CALCULATOR</h2></caption>
+            <tr>
+                <td colspan="3"><input class="in" type="text" id="s" ></td>
+                <td><button class="d" id="b1" onclick="cs()">Clear</button></td>
+            </tr>
+            <tr>
+                <td><button  class="i"  id="b" value="1" onclick="print_e(this.value)" style="font-size:25px;color:crimson">1</button></td>
+                <td><button  class="i" id="b" value="2" onclick="print_e(this.value)" style="font-size:25px;color:crimson">2</button></td>
+                <td><button  class="i" id="b" value="3" onclick="print_e(this.value)" style="font-size:25px;color:crimson">3</button></td>
+                <td><button  class="i"  id="b" value="+" onclick="print_e(this.value)" style="font-size:25px;color:crimson">+</button></td>
+            </tr>
+            <tr>
+                <td><button  class="i" id="b" value="4" onclick="print_e(this.value)" style="font-size:25px;color:crimson">4</button></td>
+                <td><button  class="i" id="b" value="5" onclick="print_e(this.value)" style="font-size:25px;color:crimson">5</button></td>
+                <td><button  class="i" id="b" value="6" onclick="print_e(this.value)" style="font-size:25px;color:crimson">6</button></td>
+                <td><button  class="i" id="b" value="-" onclick="print_e(this.value)" style="font-size:25px;color:crimson">-</button></td>
+            </tr>
+            <tr>
+                <td><button  class="i" id="b" value="7" onclick="print_e(this.value)" style="font-size:25px;color:crimson">7</button></td>
+                <td><button  class="i" id="b" value="8" onclick="print_e(this.value)" style="font-size:25px;color:crimson">8</button></td>
+                <td><button  class="i" id="b" value="9" onclick="print_e(this.value)" style="font-size:25px;color:crimson">9</button></td>
+                <td><button  class="i" id="b" value="*" onclick="print_e(this.value)" style="font-size:25px;color:crimson">*</button></td>
+            </tr>
+            <tr>
+                <td><button  class="i" id="b" value="." onclick="print_e(this.value)" style="font-size:25px;color:crimson">.</button></td>
+                <td><button  class="i" id="b" value="0" onclick="print_e(this.value)" style="font-size:25px;color:crimson">0</button></td>
+                <td><button  class="i" id="b" value="=" onclick="calculate()" style="font-size:25px;color:crimson">=</button></td>
+                <td><button  class="i" id="b" value="/" onclick="print_e(this.value)" style="font-size:25px;color:crimson">/</button></td>
+            </tr>
+        </table>
+    </div>
+    </body>
+</html>

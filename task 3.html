@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    margin: 0;
+    min-width: 250px;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+    margin:0px 200px 10px 200px;
+    border-radius: 10px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  
+  ul li:nth-child(odd) {
+    background: #f9f9f9;
+  }
+  
+ 
+  ul li:hover {
+    background: #ddd;
+  }
+  
+ 
+  ul li.checked {
+    background:green;
+    color: #fff;
+    text-decoration: line-through;
+  }
+  
+  
+  ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: rgb(24, 233, 156);
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+  
+  
+  .close {
+    position: absolute;
+    right: 0;
+    top:0;
+    padding: 12px 16px 12px 16px;
+  }
+  
+  .close:hover {
+    background-color: #f44336;
+    color: white;
+  }
+  
+ 
+  .container {
+    margin: 20px 475px 50px 475px;
+    background-color:rgb(91, 165, 230);
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  
+  .container:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+ 
+  .addBtn {
+    width: 200px;
+    height:50px;
+    background: #d9d9d9;
+    color:#fff;
+    background-color: green;
+    cursor: pointer;
+    border-radius:10px;
+  }
+  
+  .addBtn:hover {
+    background-color: rgb(135, 127, 127);
+  }
+</style>
+</head>
+<body style="background-color:rgb(149, 161, 154)">
+    <h1 style="text-align:center;background-color:white;padding:5px 10px 5px 10px;margin:0px -10px 0px -10px;text-decoration:underline">To-Do LIST WEB APP</h1>
+    <div class="container">
+        <input type="text" id="myInput" placeholder="Work to do" style="border-radius: 10px;padding:5px 5px 5px 5px;width:300px;height:20px;margin-bottom:10px;"><br>
+        <textarea placeholder="About" cols="40" rows="10" style="border-radius: 10px;margin-bottom:7px;"></textarea><br>
+        <button onclick="add()" class="addBtn">Add</button>
+    </div>
+<ul id="myUL">
+  <li>clean the room</li>
+  <li>assignment</li>
+</ul>
+
+<script>
+var list = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < list.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  list[i].appendChild(span);
+}
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+function add() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue != '') {
+    document.getElementById("myUL").appendChild(li);
+  } 
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
